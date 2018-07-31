@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+<form action="/action_page.php">
+    <div class="row">
+        Filter
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Year: </label>
+        </div>
+        <div class="col-75">
+            <input type="text" ng-model="yearFilter">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Cause: </label>
+        </div>
+        <div class="col-75">
+            <select ng-model="causeFilter" ng-options="x for x in causeList">
+                <option value="" selected>-Select Cause of Death-</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Region: </label>
+        </div>
+        <div class="col-75">
+            <select ng-model="regionFilter" ng-options="x for x in regionList">
+                <option value="" selected>-Select Region-</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Total Deaths: </label>
+        </div>
+        <div class="col-75">
+            <input type="text" ng-model="deathFilter">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+            <label>Death Rate: </label>
+        </div>
+        <div class="col-75">
+            <input type="text" ng-model="rateFilter">
+        </div>
+    </div>
+  </form>
+</body>
+</html>

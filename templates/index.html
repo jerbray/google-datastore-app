@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<div class="wrapper">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <h1>Causes of Death in the United States</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table class="option-bar">
+            <tr>
+                <td>
+                    <h2>Filter</h2><br>
+{#                    <label>Year: </label><input type="text" ng-model="yearFilter"><br>#}
+                    <select ng-model="causeFilter" ng-options="x for x in causeList">
+                        <option value="" ng-model="defaultCause" selected>-Select Cause of Death-</option>
+                    </select><br>
+                    <select ng-model="regionFilter" ng-options="x for x in regionList">
+                        <option value="" ng-model="defaultRegion" selected>-Select Region-</option>
+                    </select><br>
+{#                    <label>Total Deaths: </label><input type="text" ng-model="deathFilter"><br>#}
+{#                    <label>Death Rate: </label><input type="text" ng-model="rateFilter"><br>#}
+                    <button ng-click="addFilter()">Filter</button><button ng-click="clearFilter()">Clear</button>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <h2>Add Record</h2><br>
+                    <input type="number" placeholder="Year" ng-model="yearForm" ng-class="{'invalid': invalid[0]}"><br>
+                    <select ng-model="causeForm" ng-options="x for x in causeList" ng-class="{'invalid': invalid[1]}">
+                        <option value="" ng-model="defaultCause" selected>-Select Cause of Death-</option>
+                    </select><br>
+                    <select ng-model="regionForm" ng-options="x for x in regionList" ng-class="{'invalid': invalid[2]}">
+                        <option value="" ng-model="defaultRegion" selected>-Select Region-</option>
+                    </select><br>
+                    <input type="number" placeholder="Total Deaths" ng-model="deathForm" ng-class="{'invalid': invalid[3]}"><br>
+                    <input type="number" placeholder="Death Rate" ng-model="rateForm" ng-class="{'invalid': invalid[4]}"><br>
+                    <button ng-click="addRecord()">Save</button><button ng-click="cancelEdit()">Cancel</button>
+                </td>
+            </tr>
+        </table>
+        <table class="scrollable-table">
+            <thead>
+            <tr>
+                <th class="short" ng-click="orderByMe('Year')"
+                    ng-model="yearHeader"><div>Year </div><div
+                        class="fa" ng-class="getIcon('Year')"></div></th>
+                <th class="long" ng-click="orderByMe('CauseName')"
+                    ng-model="causeHeader"><div>Cause of Death </div><div
+                        class="fa" ng-class="getIcon('CauseName')"></div></th>
+                <th class="long" ng-click="orderByMe('State')"
+                    ng-model="regionHeader"><div>Region </div><div
+                        class="fa" ng-class="getIcon('State')"></div></th>
+                <th class="short" ng-click="orderByMe('Deaths')"
+                    ng-model="deathHeader"><div>Deaths </div><div
+                        class="fa" ng-class="getIcon('Deaths')"></div></th>
+                <th class="short" ng-click="orderByMe('AgeAdjustedDeathRate')"
+                    ng-model="rateHeader"><div>Age-Adjusted Death Rate </div><div
+                        class="fa" ng-class="getIcon('AgeAdjustedDeathRate')"></div></th>
+                <th class="short">Edit</th>
+            </tr>
+            </thead>
+            <tbody ng-class="{'loading': isLoading}">
+{#            | filter:{'Year': yearFilter} | filter:{'CauseName': causeFilter || '!!' } | filter:{'State': regionFilter || '!!' } | filter:{'Deaths': deathFilter} | filter:{'AgeAdjustedDeathRate': rateFilter}#}
+            <tr ng-repeat="x in myData  track by $index" >
+                <td class="short">[[ x.Year ]]</td>
+                <td class="long">[[ x.CauseName ]]</td>
+                <td class="long">[[ x.State ]]</td>
+                <td class="short" >[[ x.Deaths ]]</td>
+                <td class="short">[[ x.AgeAdjustedDeathRate ]]</td>
+                <td class="short">
+				    <button type="button" ng-click="editRecord(x)">Edit</button>
+				    <button type="button" class="alert-button" ng-click="deleteEntry(x)">Delete</button>
+				</td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="navigation">
+            <button type="button" ng-disabled="!prev" ng-click="prevPage()"><span class="fa fa-angle-left"></span> Prev</button>
+            <button type="button" ng-disabled="!next" ng-click="nextPage()">Next <span class="fa fa-angle-right"></span></button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/tableController.js') }}"></script>
+</div>
+</body>
+</html>

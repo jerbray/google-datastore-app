@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="../www/css/style.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+<div class="wrapper">
+    <h1>Causes of Death in the United States</h1>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <table>
+            <thead>
+            <tr>
+                <th class="filterBar">
+                    Filter<br>
+                    Year <input type="text" ng-model="yearFilter"><br>
+                    <select ng-model="causeFilter" ng-options="x for x in causeList">
+                        <option value="" selected>-Select Cause of Death-</option>
+                    </select><br>
+                    <select ng-model="regionFilter" ng-options="x for x in regionList">
+                        <option value="" selected>-Select Region-</option>
+                    </select><br>
+                    <label>Total Deaths: </label><input type="text" ng-model="deathFilter"><br>
+                    <label>Death Rate: </label><input type="text" ng-model="rateFilter"><br>
+                </th>
+                <th class="addBar">
+                    Add Record<br>
+                    Year <input type="number" ng-model="myFilter"><br>
+                    <select ng-model="causeAddition" ng-options="x for x in causeList">
+                        <option value="" selected>-Select Cause of Death-</option>
+                    </select><br>
+                    <select ng-model="regionAddition" ng-options="x for x in regionList">
+                        <option value="" selected>-Select Region-</option>
+                    </select><br>
+                    Total Deaths: <input type="number" ng-model="myFilter"><br>
+                    Death Rate: <input type="number" ng-model="myFilter"><br>
+                    <button>Save</button>
+                </th>
+            </tr>
+            </thead>
+        </table>
+        <table>
+            <thead>
+            <tr>
+                <th class="short" ng-click="orderByMe('Year')">Year</th>
+                <th class="long" ng-click="orderByMe('CauseName')">Cause of Death</th>
+                <th ng-click="orderByMe('State')">Region</th>
+                <th class="short" ng-click="orderByMe('Deaths')">Deaths</th>
+                <th class="short" ng-click="orderByMe('AgeAdjustedDeathRate')">Age-Adjusted Death Rate</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="x in myData | orderBy:myOrderBy | filter:{'Year': yearFilter} | filter:{'CauseName': causeFilter} | filter:{'State': regionFilter} | filter:{'Deaths': deathFilter} | filter:{'AgeAdjustedDeathRate': rateFilter} track by $index" >
+                <td class="short">{{ x.Year }}</td>
+                <td  class="long">{{ x.CauseName }}</td>
+                <td >{{ x.State }}</td>
+                <td class="short" >{{ x.Deaths }}</td>
+                <td class="short">{{ x.AgeAdjustedDeathRate }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="../www/js/tableController.js"></script>
+</div>
+</body>
+</html>

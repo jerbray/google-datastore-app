@@ -1,0 +1,228 @@
+body {
+    font-family: arial;
+    background-color: #202a40;
+    padding: 0;
+}
+
+.wrapper {
+    margin: auto;
+    height: 98vh;
+    width: 90vw;
+    max-width: 1200px;
+    border: 1px solid #163065;
+    padding: 0;
+    background-color: #6c7eaa;
+    color: #fff;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    margin: 4px;
+}
+
+select {
+    padding: 10px 0;
+    margin-top: 5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: #485983;
+    color:#fff;
+    border:none;
+    outline:none;
+    width: 95%;
+    text-align: center;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    font-size: 14px;
+    text-indent: 5px;
+}
+
+option {
+    /* wrap text in compatible browsers */
+    -moz-white-space:pre-wrap;
+    -o-white-space:pre-wrap;
+    white-space:pre-wrap;
+    text-align: center;
+    /* hide text that can't wrap with an ellipsis */
+    overflow: hidden;
+    text-overflow:ellipsis;
+    width: 95%;
+    text-indent: 5px;
+}
+
+input {
+    width: 95%;
+    margin-top: 5px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    padding: 10px 0;
+    font-size: 14px;
+    border:none;
+    outline:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    text-indent: 5px;
+}
+
+
+button {
+    padding: 3px;
+    margin: 8px 4px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    background: #485983;
+    color:#fff;
+    border:none;
+    outline:none;
+    text-align: center;
+    font-size: 14px;
+}
+
+button:disabled {
+    background: #5e6b83;
+    color: #b7cade;
+    cursor: default;
+}
+
+button.alert-button {
+    background: #9C1A1C;
+}
+
+table.option-bar {
+    background-color: #6c7eaa;
+    color: #fff;
+}
+
+.option-bar td{
+    background-color: #6c7eaa;
+    color: #fff;
+    border: none;
+    width: 30% !important;
+}
+
+th.short, td.short {
+    width: 12.5%;
+}
+th.long, td.long {
+    width: 25%;
+}
+
+table {
+
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+}
+
+th, td {
+    padding: 4px;
+    text-align: center;
+}
+
+td {
+    border-bottom: 1px solid #cfd2db;
+}
+
+tr {
+    width: 100% !important;
+    min-width: 100% !important;
+}
+
+thead {
+    display: block;
+ //   position: relative;
+}
+.option-bar {
+    float: left;
+    width: 30%;
+}
+
+.option-bar td, .option-bar th {
+    text-align: center;
+    padding: 10px 10px;
+}
+
+.option-bar button {
+    width: 60px;
+    padding: 10px 0;
+}
+
+.scrollable-table {
+    float: right;
+    width: 70%;
+}
+.scrollable-table thead {
+    padding-right: 17px;
+}
+
+.scrollable-table tbody {
+    display: block;
+    width: auto !important; /*just to override your inline CSS */
+    left: 0;
+    right: 0;
+    height: 65vh;
+    overflow: auto;
+    background-color: #fff;
+    color: #000000;
+}
+
+tbody.loading {
+    background: #ffffff url('loading.gif') no-repeat center;
+}
+
+.invalid {
+    border: 2px solid #9C1A1C !important;
+}
+
+.scrollable-table button {
+    width: 100%;
+    margin: 4px;
+}
+
+tbody tr:hover {
+    background-color:#cfd2db;
+}
+
+.scrollable-table th:hover {
+    background-color:#7c8fbc;
+    color: #fff;
+}
+
+.navigation {
+    float: right;
+    width: 70%;
+    text-align: center;
+}
+
+.navigation button {
+    width: 60px;
+}
+
+.login-wrapper {
+    margin: auto;
+    width: 70vw;
+    max-width: 800px;
+    border: 1px solid #163065;
+    padding: 20px;
+    background-color: #6c7eaa;
+    color: #fff;
+    text-align: center;
+}
+
+button.submit {
+    width: 180px ;
+    max-width: 100%;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    padding: 10px 0;
+}

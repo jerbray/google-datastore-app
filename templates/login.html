@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<div class="login-wrapper" ng-app="myApp" ng-controller="login">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+        <input ng-model="username" name="username" placeholder="Username"><br/>
+        <input ng-model="password" name="password" placeholder="Password"><br/>
+        <button class="submit" ng-click="login()" value="Log in">Log in</button>
+
+    <script src="{{ url_for('static', filename='js/tableController.js') }}"></script>
+</div>
+</body>
+</html>
